@@ -1,0 +1,19 @@
+# Core dependencies
+agno>=1.1.9
+
+# Model providers
+openai
+google-generativeai  # For Gemini
+groq  # For Groq
+
+# Tools
+duckduckgo-search  # For web search
+yfinance  # For financial data
+matplotlib  # For chart visualization
+pandas  # For data manipulation
+requests  # For API requests
+beautifulsoup4  # For web scraping
+lxml  # For parsing HTML
+
+# Web app
+streamlit>=1.30.0  # For web interface
