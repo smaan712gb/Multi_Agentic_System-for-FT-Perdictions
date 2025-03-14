@@ -17,3 +17,10 @@ lxml  # For parsing HTML
 
 # Web app
 streamlit>=1.30.0  # For web interface
+streamlit-cookies-manager>=0.2.0  # For session management
+
+# Authentication and payment
+bcrypt>=4.0.1  # For secure password hashing
+pyjwt>=2.6.0  # For JWT tokens
+stripe>=5.0.0  # For payment processing
+python-dotenv>=1.0.0  # For loading environment variables

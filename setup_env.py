@@ -4,12 +4,17 @@ import dotenv
 
 def setup_env():
     """
-    Set up environment variables from .env file
+    Set up environment variables from .env files
     """
-    # Load environment variables from .env file
-    env_file = os.path.join("agents", ".env")
-    if not os.path.exists(env_file):
-        print(f"Error: {env_file} not found.")
+    # Load environment variables from root .env file (if exists)
+    root_env_file = ".env"
+    if os.path.exists(root_env_file):
+        dotenv.load_dotenv(root_env_file)
+    
+    # Load environment variables from agents/.env file
+    agents_env_file = os.path.join("agents", ".env")
+    if not os.path.exists(agents_env_file):
+        print(f"Error: {agents_env_file} not found.")
         print("Please create this file with your API keys.")
         print("Example content:")
         print("DEEPSEEK_API_KEY=your_deepseek_api_key")
@@ -17,8 +22,8 @@ def setup_env():
         print("GROQ_API_KEY=your_groq_api_key")
         sys.exit(1)
     
-    # Load environment variables
-    dotenv.load_dotenv(env_file)
+    # Load environment variables from agents/.env file
+    dotenv.load_dotenv(agents_env_file, override=True)
     
     # Check if API keys are set
     api_keys = {
